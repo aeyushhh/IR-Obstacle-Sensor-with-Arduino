@@ -1,0 +1,22 @@
+const int ProxSensor=4;
+const int led=13;
+void setup()
+{
+pinMode(led, OUTPUT);
+pinMode(ProxSensor, INPUT);
+Serial.begin(9600);
+}
+void loop()
+{
+if(digitalRead(ProxSensor)==HIGH)
+{
+digitalWrite(led, HIGH);
+Serial.println("Stop...! Something is ahead");
+}
+else
+{
+digitalWrite(led, LOW);
+Serial.println("Path is clear");
+}
+delay(100); //detect the presence of the object after every 0.1 second
+}
